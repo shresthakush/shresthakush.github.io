@@ -1038,7 +1038,7 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    CONTACT
    ============================================================ */
-.contact-wrapper { max-width: 960px; margin: 0 auto; text-align: center; }
+.contact-wrapper { max-width: 900px; margin: 0 auto; text-align: center; }
 .contact-intro {
   font-size: 1rem;
   color: var(--text-secondary);
@@ -1046,58 +1046,68 @@ img { max-width: 100%; display: block; }
   margin-bottom: 48px;
 }
 
+/* 2-column grid — each card is wide enough for long values */
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
+/* Horizontal layout: icon on left, text on right */
 .contact-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 24px 16px;
+  padding: 22px 24px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 12px;
-  text-align: center;
+  gap: 18px;
+  text-align: left;
   transition: var(--transition);
   box-shadow: var(--shadow-card);
   min-width: 0;
 }
 .contact-card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-card), var(--shadow-glow);
 }
 
 .contact-card-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
   background: var(--accent-grad);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  flex-shrink: 0;
 }
 .contact-card-icon-linkedin {
   background: #0077b5;
 }
-.contact-card-text { display: flex; flex-direction: column; gap: 4px; }
+.contact-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
 .contact-card-label {
-  font-size: .72rem;
+  font-size: .7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .08em;
   color: var(--text-muted);
 }
 .contact-card-value {
-  font-size: .82rem;
+  font-size: .92rem;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ============================================================
@@ -1152,8 +1162,8 @@ img { max-width: 100%; display: block; }
   .skills-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .education-grid { grid-template-columns: 1fr; max-width: 480px; }
-  .contact-cards { grid-template-columns: repeat(2, 1fr); max-width: 520px; margin: 0 auto; }
-  .contact-card-value { white-space: normal; font-size: .8rem; }
+  .contact-cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .contact-card-value { white-space: normal; }
   .about-stats { gap: 14px; }
 }
 
