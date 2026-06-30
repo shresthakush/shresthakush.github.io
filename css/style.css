@@ -779,6 +779,53 @@ img { max-width: 100%; display: block; }
 }
 .project-link:hover { color: #fff; gap: 10px; }
 
+/* Wide project card — spans both columns */
+.project-card-wide {
+  grid-column: 1 / -1;
+}
+
+/* Dual link row (e.g. Website + Platform) */
+.project-links-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: .82rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.project-link-btn-outline {
+  border: 1.5px solid var(--border-hover);
+  color: var(--text-secondary);
+  background: transparent;
+}
+.project-link-btn-outline:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(56,189,248,.06);
+  transform: translateY(-2px);
+}
+
+.project-link-btn-primary {
+  background: var(--accent-grad);
+  color: #fff;
+  border: 1.5px solid transparent;
+  box-shadow: 0 2px 12px rgba(56,189,248,.25);
+}
+.project-link-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(56,189,248,.4);
+}
+
 /* MST sub-platform grid */
 .mst-platforms {
   margin-top: 20px;
