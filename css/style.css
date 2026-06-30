@@ -3,7 +3,9 @@
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
+/* Dark theme (default) */
+:root,
+[data-theme="dark"] {
   --bg-primary:    #080c18;
   --bg-secondary:  #0d1226;
   --bg-card:       #111827;
@@ -19,14 +21,42 @@
   --text-secondary:#94a3b8;
   --text-muted:    #4b5975;
 
+  --shadow-card: 0 4px 24px rgba(0,0,0,.45);
+  --shadow-glow: 0 0 40px rgba(56,189,248,.12);
+
+  --nav-bg-scrolled: rgba(8,12,24,.92);
+  --hero-grid-color: rgba(56,189,248,.04);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg-primary:    #f8fafc;
+  --bg-secondary:  #f1f5f9;
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f0f7ff;
+  --border:        rgba(100, 130, 180, 0.18);
+  --border-hover:  rgba(14, 165, 233, 0.45);
+
+  --accent-cyan:   #0284c7;
+  --accent-purple: #6366f1;
+  --accent-grad:   linear-gradient(135deg, #0284c7 0%, #6366f1 100%);
+
+  --text-primary:  #0f172a;
+  --text-secondary:#475569;
+  --text-muted:    #94a3b8;
+
+  --shadow-card: 0 4px 24px rgba(0,0,0,.08);
+  --shadow-glow: 0 0 40px rgba(2,132,199,.1);
+
+  --nav-bg-scrolled: rgba(248,250,252,.92);
+  --hero-grid-color: rgba(2,132,199,.04);
+}
+
+:root {
   --nav-h:         70px;
   --radius-sm:     8px;
   --radius-md:     14px;
   --radius-lg:     20px;
-
-  --shadow-card: 0 4px 24px rgba(0,0,0,.45);
-  --shadow-glow: 0 0 40px rgba(56,189,248,.12);
-
   --transition: .25s cubic-bezier(.4,0,.2,1);
 }
 
@@ -108,7 +138,7 @@ img { max-width: 100%; display: block; }
   transition: background var(--transition), box-shadow var(--transition);
 }
 .navbar.scrolled {
-  background: rgba(8,12,24,.92);
+  background: var(--nav-bg-scrolled);
   backdrop-filter: blur(16px);
   box-shadow: 0 1px 0 var(--border);
 }
@@ -175,6 +205,33 @@ img { max-width: 100%; display: block; }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Theme toggle button */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--border-hover);
+  color: var(--accent-cyan);
+  transform: rotate(15deg);
+}
+
+/* Show/hide correct icon based on theme */
+[data-theme="dark"]  .icon-sun  { display: none; }
+[data-theme="dark"]  .icon-moon { display: block; }
+[data-theme="light"] .icon-moon { display: none; }
+[data-theme="light"] .icon-sun  { display: block; }
+
 /* ============================================================
    HERO
    ============================================================ */
@@ -191,8 +248,8 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(56,189,248,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56,189,248,.04) 1px, transparent 1px);
+    linear-gradient(var(--hero-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid-color) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -926,7 +983,7 @@ img { max-width: 100%; display: block; }
     position: fixed;
     top: var(--nav-h);
     left: 0; right: 0;
-    background: rgba(8,12,24,.97);
+    background: var(--nav-bg-scrolled);
     backdrop-filter: blur(20px);
     flex-direction: column;
     padding: 24px;

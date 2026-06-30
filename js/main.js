@@ -1,4 +1,20 @@
 /* ============================================================
+   THEME TOGGLE — dark / light with localStorage persistence
+   ============================================================ */
+const html = document.documentElement;
+const themeToggle = document.getElementById('theme-toggle');
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
+/* ============================================================
    NAVBAR — scroll effect & active link highlight
    ============================================================ */
 const navbar = document.getElementById('navbar');
