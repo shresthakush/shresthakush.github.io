@@ -727,29 +727,6 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   color: var(--accent-cyan);
 }
-/* Brand logos in project cards */
-.project-logo {
-  height: 56px;
-  width: auto;
-  max-width: 160px;
-  object-fit: contain;
-  border-radius: 8px;
-}
-.project-logo-sm {
-  height: 52px;
-  max-width: 56px;
-  border-radius: 10px;
-}
-
-/* Light mode: add a subtle background to logos that are transparent/white */
-[data-theme="light"] .project-logo {
-  background: var(--bg-secondary);
-  padding: 4px 8px;
-  border-radius: 10px;
-}
-[data-theme="light"] .project-logo-sm {
-  padding: 4px;
-}
 
 .project-role-badge {
   font-size: .72rem;
@@ -802,6 +779,83 @@ img { max-width: 100%; display: block; }
   margin-top: auto;
 }
 .project-link:hover { color: #fff; gap: 10px; }
+
+/* ── Project card banner ───────────────────────────────── */
+.project-banner {
+  height: 140px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: -32px -32px 24px;  /* bleed to card edges */
+}
+
+/* Brand colour backgrounds derived from each logo palette */
+.project-banner--kfq {
+  background: linear-gradient(135deg,
+    rgba(255, 196, 64, 0.22) 0%,
+    rgba(74, 78, 180, 0.12) 100%);
+  border-bottom: 1px solid rgba(255, 196, 64, 0.18);
+}
+.project-banner--mst {
+  background: linear-gradient(135deg,
+    rgba(205, 68, 67, 0.15) 0%,
+    rgba(41, 128, 185, 0.10) 100%);
+  border-bottom: 1px solid rgba(205, 68, 67, 0.15);
+}
+.project-banner--ivy {
+  background: linear-gradient(135deg,
+    rgba(227, 45, 45, 0.16) 0%,
+    rgba(180, 20, 20, 0.06) 100%);
+  border-bottom: 1px solid rgba(227, 45, 45, 0.15);
+}
+.project-banner--wrl {
+  background: linear-gradient(135deg,
+    rgba(129, 140, 248, 0.14) 0%,
+    rgba(56, 189, 248, 0.08) 100%);
+  border-bottom: 1px solid rgba(129, 140, 248, 0.15);
+}
+.project-banner--hsa {
+  background: linear-gradient(135deg,
+    rgba(47, 184, 126, 0.18) 0%,
+    rgba(255, 196, 0, 0.10) 100%);
+  border-bottom: 1px solid rgba(47, 184, 126, 0.18);
+}
+
+.project-banner-logo {
+  max-height: 90px;
+  max-width: 80%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.18));
+  transition: transform .3s ease;
+}
+.project-card:hover .project-banner-logo {
+  transform: scale(1.05);
+}
+.project-banner-logo--sm {
+  max-height: 70px;
+  max-width: 60%;
+}
+.project-banner-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(129,140,248,.15);
+  border: 1.5px solid rgba(129,140,248,.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-purple);
+}
+
+/* Card body padding below banner */
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
 /* Wide project card — spans both columns */
 .project-card-wide {
