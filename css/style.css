@@ -727,6 +727,30 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   color: var(--accent-cyan);
 }
+/* Brand logos in project cards */
+.project-logo {
+  height: 56px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.project-logo-sm {
+  height: 52px;
+  max-width: 56px;
+  border-radius: 10px;
+}
+
+/* Light mode: add a subtle background to logos that are transparent/white */
+[data-theme="light"] .project-logo {
+  background: var(--bg-secondary);
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+[data-theme="light"] .project-logo-sm {
+  padding: 4px;
+}
+
 .project-role-badge {
   font-size: .72rem;
   font-weight: 700;
