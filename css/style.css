@@ -970,7 +970,7 @@ img { max-width: 100%; display: block; }
 
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
@@ -1002,6 +1002,9 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: center;
   color: #fff;
+}
+.contact-card-icon-linkedin {
+  background: #0077b5;
 }
 .contact-card-text { display: flex; flex-direction: column; gap: 4px; }
 .contact-card-label {
@@ -1070,7 +1073,7 @@ img { max-width: 100%; display: block; }
   .skills-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .education-grid { grid-template-columns: 1fr; max-width: 480px; }
-  .contact-cards { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+  .contact-cards { grid-template-columns: repeat(2, 1fr); max-width: 480px; margin: 0 auto; }
   .about-stats { gap: 14px; }
 }
 
