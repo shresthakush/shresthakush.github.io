@@ -812,9 +812,9 @@ img { max-width: 100%; display: block; }
 }
 .project-banner--wrl {
   background: linear-gradient(135deg,
-    rgba(129, 140, 248, 0.14) 0%,
-    rgba(56, 189, 248, 0.08) 100%);
-  border-bottom: 1px solid rgba(129, 140, 248, 0.15);
+    rgba(88, 28, 135, 0.55) 0%,
+    rgba(15, 5, 40, 0.70) 100%);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.25);
 }
 .project-banner--hsa {
   background: linear-gradient(135deg,

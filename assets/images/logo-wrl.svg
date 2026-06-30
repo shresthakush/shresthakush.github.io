@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 70">
+  <defs>
+    <clipPath id="clip-left">
+      <circle cx="33" cy="28" r="20"/>
+    </clipPath>
+  </defs>
+  <!-- Lime green circle (right, drawn first) -->
+  <circle cx="57" cy="28" r="20" fill="#A3E635"/>
+  <!-- Purple circle (left) -->
+  <circle cx="33" cy="28" r="20" fill="#8B5CF6"/>
+  <!-- Overlap region — dark, matching the screenshot -->
+  <circle cx="57" cy="28" r="20" fill="#1a0a30" clip-path="url(#clip-left)"/>
+  <!-- ING label -->
+  <text x="45" y="63" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="11" font-weight="700"
+        letter-spacing="2" fill="#1a1a2e">ING</text>
+</svg>
