@@ -832,6 +832,28 @@ img { max-width: 100%; display: block; }
     rgba(255, 196, 0, 0.10) 100%);
   border-bottom: 1px solid rgba(47, 184, 126, 0.18);
 }
+.project-banner--apollo {
+  background: linear-gradient(135deg,
+    rgba(139, 92, 246, 0.22) 0%,
+    rgba(15, 5, 40, 0.65) 100%);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.25);
+}
+.project-banner--ebook {
+  background: linear-gradient(135deg,
+    rgba(217, 119, 6, 0.20) 0%,
+    rgba(120, 53, 15, 0.12) 100%);
+  border-bottom: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+/* Text wordmark banner — used for projects with no logo asset */
+.project-banner-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--text-primary);
+  opacity: .82;
+}
 
 .project-banner-logo {
   max-height: 90px;
