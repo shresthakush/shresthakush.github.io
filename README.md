@@ -7,13 +7,17 @@ A modern, responsive, dark-themed personal portfolio website for **Kush Man Shre
 ```
 shresthakush.github.io/
 ├── index.html          # Single-page application (all sections)
+├── 404.html            # Custom not-found page for GitHub Pages
+├── robots.txt          # Search engine crawl rules
+├── sitemap.xml         # Sitemap for search engines
 ├── css/
 │   └── style.css       # All styles — dark theme, responsive, animations
 ├── js/
 │   └── main.js         # Scroll effects, typed text, nav highlight, reveal
 ├── assets/
+│   ├── images/         # Project logos + favicon.svg
 │   └── cv/
-│       └── Kush_Man_Shrestha_CV.pdf   # ← Place your CV PDF here
+│       └── Kush_Man_Shrestha_CV.pdf   # ← Place your CV PDF here (not yet added)
 └── README.md
 ```
 

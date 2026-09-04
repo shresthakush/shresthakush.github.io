@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shresthakush.com.np/sitemap.xml

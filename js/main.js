@@ -6,13 +6,19 @@ const themeToggle = document.getElementById('theme-toggle');
 
 const savedTheme = localStorage.getItem('theme') || 'dark';
 html.setAttribute('data-theme', savedTheme);
+updateThemeToggleLabel(savedTheme);
 
 themeToggle.addEventListener('click', () => {
   const current = html.getAttribute('data-theme');
   const next = current === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
+  updateThemeToggleLabel(next);
 });
+
+function updateThemeToggleLabel(theme) {
+  themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+}
 
 /* ============================================================
    NAVBAR — scroll effect & active link highlight
@@ -38,8 +44,13 @@ function highlightNav() {
     if (window.scrollY >= top) current = section.getAttribute('id');
   });
   navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+    const isActive = link.getAttribute('href') === `#${current}`;
+    link.classList.toggle('active', isActive);
+    if (isActive) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
   });
 }
 
@@ -50,16 +61,23 @@ const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-links');
 
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
+  const isOpen = hamburger.classList.toggle('open');
   navMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', String(isOpen));
 });
 
 navMenu.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     navMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
   });
 });
+
+/* ============================================================
+   REDUCED MOTION PREFERENCE
+   ============================================================ */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ============================================================
    SCROLL REVEAL
@@ -78,7 +96,7 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll('.reveal').forEach((el, i) => {
-  el.dataset.delay = (i % 4) * 80;
+  el.dataset.delay = prefersReducedMotion ? 0 : (i % 4) * 80;
   revealObserver.observe(el);
 });
 
@@ -123,7 +141,11 @@ function type() {
   typingTimer = setTimeout(type, speed);
 }
 
-type();
+if (prefersReducedMotion) {
+  typedEl.textContent = roles[0];
+} else {
+  type();
+}
 
 /* ============================================================
    BACK TO TOP BUTTON

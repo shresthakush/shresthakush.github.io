@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Kush Man Shrestha</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .not-found {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .not-found h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; color: var(--accent); margin-bottom: 12px; }
+    .not-found p { color: var(--text-secondary); margin-bottom: 32px; font-size: 1.05rem; }
+  </style>
+</head>
+<body>
+  <div class="not-found">
+    <h1>404</h1>
+    <p>This page doesn't exist. Let's get you back on track.</p>
+    <a href="/" class="btn btn-primary">Back to Home</a>
+  </div>
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+</body>
+</html>
